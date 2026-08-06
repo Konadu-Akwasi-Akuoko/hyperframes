@@ -1,0 +1,60 @@
+{
+  "name": "@hyperframes/gcp-cloud-run",
+  "version": "0.6.46",
+  "description": "Google Cloud adapter for HyperFrames distributed rendering — Cloud Run worker and client-side SDK (Cloud Workflows orchestration, Cloud Storage artifacts).",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heygen-com/hyperframes",
+    "directory": "packages/gcp-cloud-run"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./handler": {
+      "import": "./dist/handler.js",
+      "types": "./dist/handler.d.ts"
+    },
+    "./sdk": {
+      "import": "./dist/sdk/index.js",
+      "types": "./dist/sdk/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google-cloud/run": "^3.2.1",
+    "@google-cloud/storage": "^7.19.0",
+    "@google-cloud/workflows": "^5.1.1",
+    "@hyperframes/producer": "workspace:^",
+    "ffmpeg-static": "^5.3.0",
+    "ffprobe-static": "^3.1.0",
+    "puppeteer-core": "^25.1.0",
+    "tar": "^7.5.15"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/tar": "^7.0.87",
+    "esbuild": "^0.28.0",
+    "tsx": "^4.22.3",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
